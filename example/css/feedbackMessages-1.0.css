@@ -1,0 +1,163 @@
+﻿/*////////////////////////////////////////////
+// ggFeedbackMessage Cell JS/CSS PlugIn V1.0//
+// Developed by: Ing.Gerardo Garita J.      //
+// FullStack Developer                      //
+// email: info@ggaritaj.com                 //
+// date: friday, 2018-09-15                 //
+// last date: friday, 2018-09-15            //
+////////////////////////////////////////////*/
+
+.feedbackMsgsContainer{
+    width:100%;
+}
+.feedbackMsgsContainer .feedbackMsg {
+    border: 2px solid;
+    box-shadow: 0 4px 5px 0 rgba(0, 0, 0, .14), 0 1px 10px 0 rgba(0, 0, 0, .12), 0 2px 4px -1px rgba(0, 0, 0, .2);
+    width: 300px;
+    position: absolute;
+    bottom: 30px;
+    right: 30px;
+    border-radius: 4px;
+    padding: 5px;
+    background-color:#fff;
+}
+    .feedbackMsgsContainer .feedbackMsg.info {
+        border-color: #337ab7;
+    }
+    .feedbackMsgsContainer .feedbackMsg.warning {
+        border-color: #d87216;
+    }
+    .feedbackMsgsContainer .feedbackMsg.success {
+        border-color: #2c872e;
+    }
+    .feedbackMsgsContainer .feedbackMsg.danger {
+        border-color: #a94442;
+    }
+.feedbackMsgsContainer .feedbackMsg .icon {
+    float: left;
+    width: 50px;
+}
+.feedbackMsgsContainer .feedbackMsg .icon span {
+    font-size: 40px;
+}
+    .feedbackMsgsContainer .feedbackMsg.info .icon span:before {
+        content: "\e086";
+    }
+    .feedbackMsgsContainer .feedbackMsg.warning .icon span:before {
+        content: "\e209";
+    }
+    .feedbackMsgsContainer .feedbackMsg.success .icon span:before {
+        content: "\e013";
+    }
+    .feedbackMsgsContainer .feedbackMsg.danger .icon span:before {
+        content: "\e014";
+    }
+    .feedbackMsgsContainer .feedbackMsg.info .icon span {
+        color: #31708f;
+    }
+    .feedbackMsgsContainer .feedbackMsg.warning .icon span {
+        color: #d87216;
+    }
+    .feedbackMsgsContainer .feedbackMsg.success .icon span {
+        color: #2c872e;
+    }
+    .feedbackMsgsContainer .feedbackMsg.danger .icon span {
+        color: #a94442;
+    }
+.feedbackMsgsContainer .feedbackMsg .text {
+    float: left;
+    width: 212px;
+}
+.feedbackMsgsContainer .feedbackMsg .text label {
+    width: 100%;
+    margin: 10px 0px 5px 0px;
+    font-size: 14px;
+    border-bottom: 1px solid;
+    padding-bottom: 5px;
+    font-weight: bold;
+}
+    .feedbackMsgsContainer .feedbackMsg.info .text label {
+        color: #286090;
+        border-color: #c2d9e4;
+    }
+    .feedbackMsgsContainer .feedbackMsg.warning .text label {
+        color: #9b4c05;
+        border-color: #e2ae80;
+    }
+    .feedbackMsgsContainer .feedbackMsg.success .text label {
+        color: #3c763d;
+        border-color: #c9e6bd;
+    }
+    .feedbackMsgsContainer .feedbackMsg.danger .text label {
+        color: #a94442;
+        border-color: #da9e9e;
+    }
+.feedbackMsgsContainer .feedbackMsg .text p {
+    width: 100%;
+    font-size: 12px;
+}
+.feedbackMsgsContainer .feedbackMsg.info .text p {
+    color: #333;
+}
+.feedbackMsgsContainer .feedbackMsg .btnClose {
+    float: right;
+}
+.feedbackMsgsContainer .feedbackMsg .btnClose button {
+    padding: 0px 6px;
+    margin-bottom: 0;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1.42857143;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    -ms-touch-action: manipulation;
+    touch-action: manipulation;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    background-image: none;
+    border: 1px solid transparent;
+    border-radius: 4px;
+}
+    .feedbackMsgsContainer .feedbackMsg.info .btnClose button {
+        background-color: #d9edf7;
+    }
+    .feedbackMsgsContainer .feedbackMsg.warning .btnClose button {
+        background-color: #e2ae80;
+    }
+    .feedbackMsgsContainer .feedbackMsg.success .btnClose button {
+        background-color: #c9e6bd;
+    }
+    .feedbackMsgsContainer .feedbackMsg.danger .btnClose button {
+        background-color: #da9e9e;
+    }
+.feedbackMsgsContainer .feedbackMsg .btnClose button:hover {
+    -webkit-transition: all 0.3s ease;
+    -moz-transition: all 0.3s ease;
+    transition: all 0.3s ease;
+}
+    .feedbackMsgsContainer .feedbackMsg.info .btnClose button:hover {
+        background-color: #337ab7;
+        color: #ffffff;
+    }
+    .feedbackMsgsContainer .feedbackMsg.warning .btnClose button:hover {
+        background-color: #9b4c05;
+        color: #ffffff;
+    }
+    .feedbackMsgsContainer .feedbackMsg.success .btnClose button:hover {
+        background-color: #3c763d;
+        color: #ffffff;
+    }
+    .feedbackMsgsContainer .feedbackMsg.danger .btnClose button:hover {
+        background-color: #a94442;
+        color: #ffffff;
+    }
+.cleaner:before,
+.cleaner:after {
+    clear: both;
+    content: " ";
+    display: table;
+}
