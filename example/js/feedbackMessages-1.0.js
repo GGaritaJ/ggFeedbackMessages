@@ -8,58 +8,56 @@
 ///////////////////////////////////////////////
 
 ; (function ($) {
-    jQuery.fn.FeedbackMessage = function () {
-        return this;
-    };
+    var _delay = 1000;
+    var _duration = 10000;
+    var _animationInDuration = 1000;
+    var _animationOutDuration = 700;
     jQuery.fn.ggFeedbackMessage = function (options) {
         try {
             var type = 'info';
-            var title = 'TITLE';
-            var text = 'TEXT';
-            var delay = 1500;
-            var duration = 10000;
-            var animateIn = 1000;
-            var animateOut = 700;
-            var fire = false;
             var customClasses = '';
+            var text = '';
             if ((options != undefined) && (options !== null) && (options !== "")) {
-                if (options.hasOwnProperty('type')) {
-                    type = options.type;
-                }
-                if (options.hasOwnProperty('customClasses')) {
-                    type = (type + ' ' + options.customClasses);
-                }
                 if (options.hasOwnProperty('title')) {
-                    title = options.title;
-                }
-                if (options.hasOwnProperty('text')) {
-                    text = options.text;
-                }
-                if (options.hasOwnProperty('delay')) {
-                    delay = options.delay;
-                }
-                if (options.hasOwnProperty('duration')) {
-                    duration = options.duration;
-                }
-                if (options.hasOwnProperty('animateIn')) {
-                    animateIn = options.animateIn;
-                }
-                if (options.hasOwnProperty('animateOut')) {
-                    animateOut = options.animateOut;
-                }
-                if (options.hasOwnProperty('fire')) {
-                    if (options.fire) {
-                        setTimeout(function () {
-                            $(".feedbackMsg").css("opacity", "1").fadeIn(animateIn);
-                        }, delay);
-                        setTimeout(function () {
-                            $(".feedbackMsg").fadeTo(animateOut, 0).slideUp(animateOut);
-                        }, duration);
+                    var title = options.title;
+                    if (options.hasOwnProperty('type')) {
+                        type = options.type;
                     }
+                    if (options.hasOwnProperty('customClasses')) {
+                        type = (type + ' ' + options.customClasses);
+                    }
+                    if (options.hasOwnProperty('text')) {
+                        text = ('<p>' + options.text + '</p>');
+                    }
+                    if (options.hasOwnProperty('delay')) {
+                        _delay = options.delay;
+                    }
+                    if (options.hasOwnProperty('duration')) {
+                        _duration = options.duration;
+                    }
+                    if (options.hasOwnProperty('animationInDuration')) {
+                        _animationInDuration = options.animationInDuration;
+                    }
+                    if (options.hasOwnProperty('animationOutDuration')) {
+                        _animationOutDuration = options.animationOutDuration;
+                    }
+                    var _msg = $(('<div class="feedbackMsgsContainer cleaner"><div class="feedbackMsg ' + type + ' cleaner" style="display:none;"><div class="icon"><span class="glyphicon"></span></div><div class="text"><label>' + title + '</label>' + text + '</div><div class="btnClose"><button type="button">&times;</button></div></div></div>'));
+                    $($(_msg).find("div.btnClose button")).on("click", function () {
+                        _ggHide($(this).closest("div.feedbackMsgsContainer"));
+                    });
+                    $(this).append(_msg);
+                    setTimeout(function () {
+                        _ggShow(_msg);
+                    }, _delay);
+                    setTimeout(function () {
+                        _ggHide(_msg);
+                    }, _duration);
+                } else {
+                    console.log("gg:no title.");
                 }
+            } else {
+                console.log("gg:no message.");
             }
-            $(this).append(('<div class="feedbackMsgsContainer cleaner"><div class="feedbackMsg ' + type + ' cleaner" style="display:none;"><div class="icon"><span class="glyphicon"></span></div><div class="text"><label>' + title + '</label><p>' + text + '</p></div><div class="btnClose"><button type="button">&times;</button></div></div ></div >'));
-            console.log("gg:feedback messages ready!");
         }
         catch (err) {
             console.log("Error: " + err + ".");
@@ -70,60 +68,17 @@
             }, 1000);
         }
     };
-    jQuery.fn.FeedbackMessage().Show = function (options) {
-        try {
-            var container = this;
-            var type = 'info';
-            var title = 'TITLE';
-            var text = 'TEXT';
-            var delay = 1500;
-            var duration = 10000;
-            var animateIn = 1000;
-            var animateOut = 700;
-            var customClasses = '';
-            if ((options != undefined) && (options !== null) && (options !== "")) {
-                if (options.hasOwnProperty('type')) {
-                    type = options.type;
-                }
-                if (options.hasOwnProperty('customClasses')) {
-                    type = (type + ' ' + options.customClasses);
-                }
-                if (options.hasOwnProperty('title')) {
-                    title = options.title;
-                }
-                if (options.hasOwnProperty('text')) {
-                    text = options.text;
-                }
-                if (options.hasOwnProperty('delay')) {
-                    delay = options.delay;
-                }
-                if (options.hasOwnProperty('duration')) {
-                    duration = options.duration;
-                }
-                if (options.hasOwnProperty('animateIn')) {
-                    animateIn = options.animateIn;
-                }
-                if (options.hasOwnProperty('animateOut')) {
-                    animateOut = options.animateOut;
-                }
-            }
-            $($(container).find("div.feedbackMsg .text label")).text(title);
-            $($(container).find("div.feedbackMsg .text p")).text(text);
-            $($(container).find("div.feedbackMsg")).removeAttr("class").addClass(("feedbackMsg cleaner " + type));
-            setTimeout(function () {
-                $($(container).find("div.feedbackMsg")).css("opacity", "1").fadeIn(animateIn);
-            }, delay);
-            setTimeout(function () {
-                $($(container).find("div.feedbackMsg")).fadeTo(animateOut, 0).slideUp(animateOut);
-            }, duration);
+    function _ggShow(obj) {
+        if ($(obj).hasClass("feedbackMsgsContainer")) {
+            $($(obj).find("div.feedbackMsg")).css("opacity", "1").fadeIn(_animationInDuration);
         }
-        catch (err) {
-            console.log("Error: " + err + ".");
-        }
-        finally {
+    };
+    function _ggHide(obj) {
+        if ($(obj).hasClass("feedbackMsgsContainer")) {
+            $($(obj).find("div.feedbackMsg")).fadeTo(_animationOutDuration, 0).slideUp(_animationOutDuration);
             setTimeout(function () {
-                window.dispatchEvent(new Event('resize'));
-            }, 1000);
+                $(obj).remove();
+            }, _animationOutDuration);
         }
     };
 })(jQuery);

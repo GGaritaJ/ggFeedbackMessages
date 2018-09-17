@@ -72,30 +72,38 @@
     width: 100%;
     margin: 10px 0px 5px 0px;
     font-size: 14px;
-    border-bottom: 1px solid;
-    padding-bottom: 5px;
     font-weight: bold;
 }
     .feedbackMsgsContainer .feedbackMsg.info .text label {
         color: #286090;
-        border-color: #c2d9e4;
     }
     .feedbackMsgsContainer .feedbackMsg.warning .text label {
         color: #9b4c05;
-        border-color: #e2ae80;
     }
     .feedbackMsgsContainer .feedbackMsg.success .text label {
         color: #3c763d;
-        border-color: #c9e6bd;
     }
     .feedbackMsgsContainer .feedbackMsg.danger .text label {
         color: #a94442;
-        border-color: #da9e9e;
     }
 .feedbackMsgsContainer .feedbackMsg .text p {
     width: 100%;
     font-size: 12px;
+    border-top: 1px solid;
+    padding-top: 5px;
 }
+    .feedbackMsgsContainer .feedbackMsg.info .text p {
+        border-color: #c2d9e4;
+    }
+    .feedbackMsgsContainer .feedbackMsg.warning .text p {
+        border-color: #e2ae80;
+    }
+    .feedbackMsgsContainer .feedbackMsg.success .text p {
+        border-color: #c9e6bd;
+    }
+    .feedbackMsgsContainer .feedbackMsg.danger .text p {
+        border-color: #da9e9e;
+    }
 .feedbackMsgsContainer .feedbackMsg.info .text p {
     color: #333;
 }

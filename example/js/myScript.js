@@ -1,22 +1,19 @@
 $(document).ready(function () {
+    //"body" selector is the element where the message is added
     $("body").ggFeedbackMessage({
-        type: "info",
-        title: "Titulo de pruebas",
-        text: "Este es el contenido del mensaje.",
-        delay: 1500,// miliseconds
-        duration: 10000,// miliseconds
-        fire: true,
-        customClasses: "myClass"
+        title: "Titulo de pruebas",// required
+        text: "Este es el contenido del mensaje.",// not required
+        type: "success",// info is default, success, warning, danger
+        delay: 0,// miliseconds
+        duration: 5000,// miliseconds
+        animationInDuration: 1000,// miliseconds
+        animationOutDuration: 700,// miliseconds
+        customClasses: "myClass"// css classes by message
     });
-
+    //test
     setTimeout(function () {
-        $("body").FeedbackMessage().Show({
-            type: "danger",
-            title: "Titulo de pruebas 2",
-            text: "Este es el contenido del mensaje 2.",
-            delay: 1000,// miliseconds
-            duration: 5000,// miliseconds
-            customClasses: "myClass2"
+        $("#mainContainer").ggFeedbackMessage({
+            title: "Titulo de pruebas 2"
         });
-    }, 12000);
+    }, 7000);
 });
