@@ -29,6 +29,6 @@ $("body").ggFeedbackMessage({
 });
 ```
 
-Online example: https://jsfiddle.net/GGaritaJ/0zsbL3vw/1/
+Online example: https://jsfiddle.net/GGaritaJ/0zsbL3vw/3/
 
 More info: www.ggaritaj.com info@ggaritaj.com
