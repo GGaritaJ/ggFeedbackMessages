@@ -14,7 +14,18 @@ $("body").ggFeedbackMessage({
     duration: 5000,// miliseconds
     animationInDuration: 1000,// miliseconds
     animationOutDuration: 700,// miliseconds
-    customClasses: "myClass"// css classes by message
+    customClasses: "myClass",// css classes by message
+    redirect: [{// internal links of message
+            title: "website",// link title
+            url: "http://www.ggaritaj.com/",// link url to redirect
+            target: "_blank"// target attribute in a tag
+        },
+        {
+            title: "github",
+            url: "https://www.github.com/GGaritaJ/",
+            target: "_blank"
+        }],
+    objects: $("<input type='text' class='form-control' placeholder='type here...' />")// images, lists, inputs, video or jquery selector
 });
 ```
 
