@@ -1,10 +1,10 @@
 ﻿///////////////////////////////////////////////
-// ggFeedbackMessage Cell JS/CSS PlugIn V1.0 //
+// ggFeedbackMessage Cell JS/CSS PlugIn V1.2 //
 //  Developed by: Ing.Gerardo Garita J.      //
 //                FullStack Developer        //
 //  email:  info@ggaritaj.com                //
 //  date:       friday, 2018-09-15           //
-//  last date:  friday, 2018-09-15           //
+//  last date:  friday, 2018-09-21           //
 ///////////////////////////////////////////////
 
 ; (function ($) {
@@ -20,6 +20,8 @@
             if ((options != undefined) && (options !== null) && (options !== "")) {
                 if (options.hasOwnProperty('title')) {
                     var title = options.title;
+                    var links = '';
+                    var objects;
                     if (options.hasOwnProperty('type')) {
                         type = options.type;
                     }
@@ -41,7 +43,17 @@
                     if (options.hasOwnProperty('animationOutDuration')) {
                         _animationOutDuration = options.animationOutDuration;
                     }
-                    var _msg = $(('<div class="feedbackMsgsContainer cleaner"><div class="feedbackMsg ' + type + ' cleaner" style="display:none;"><div class="icon"><span class="glyphicon"></span></div><div class="text"><label>' + title + '</label>' + text + '</div><div class="btnClose"><button type="button">&times;</button></div></div></div>'));
+                    if (options.hasOwnProperty('redirect')) {
+                        links = '<ul>';
+                        $(options.redirect).each(function (i, link) {
+                            links += ('<li><a href="' + (link.url != undefined ? (link.url != "" ? link.url : "#") : "#") + '" target="' + (link.target != undefined ? (link.target != "" ? link.target : "_blank") : "_blank") + '">' + link.title + '</a>');
+                        });
+                        links += '</ul>';
+                    }
+                    var _msg = $(('<div class="feedbackMsgsContainer cleaner"><div class="feedbackMsg ' + type + ' cleaner" style="display:none;"><div class="icon"><span class="glyphicon"></span></div><div class="text"><label>' + title + '</label>' + text + links + '</div><div class="btnClose"><button type="button">&times;</button></div></div></div>'));
+                    if (options.hasOwnProperty('objects')) {
+                        $($(_msg).find("div.text")).append($(options.objects));
+                    }
                     $($(_msg).find("div.btnClose button")).on("click", function () {
                         _ggHide($(this).closest("div.feedbackMsgsContainer"));
                     });

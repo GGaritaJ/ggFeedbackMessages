@@ -1,10 +1,10 @@
 ﻿/*////////////////////////////////////////////
-// ggFeedbackMessage Cell JS/CSS PlugIn V1.0//
+// ggFeedbackMessage Cell JS/CSS PlugIn V1.2//
 // Developed by: Ing.Gerardo Garita J.      //
 // FullStack Developer                      //
 // email: info@ggaritaj.com                 //
 // date: friday, 2018-09-15                 //
-// last date: friday, 2018-09-15            //
+// last date: friday, 2018-09-21            //
 ////////////////////////////////////////////*/
 
 .feedbackMsgsContainer{
@@ -103,6 +103,24 @@
     }
     .feedbackMsgsContainer .feedbackMsg.danger .text p {
         border-color: #da9e9e;
+    }
+.feedbackMsgsContainer .feedbackMsg .text ul {
+    margin-bottom:5px;
+    padding-left:15px;
+    font-size:12px;
+    font-weight:bold;
+}
+    .feedbackMsgsContainer .feedbackMsg.info .text ul a {
+        color: #286090;
+    }
+    .feedbackMsgsContainer .feedbackMsg.warning .text ul a {
+        color: #9b4c05;
+    }
+    .feedbackMsgsContainer .feedbackMsg.success .text ul a {
+        color: #3c763d;
+    }
+    .feedbackMsgsContainer .feedbackMsg.danger .text ul a {
+        color: #a94442;
     }
 .feedbackMsgsContainer .feedbackMsg.info .text p {
     color: #333;
