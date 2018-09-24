@@ -1,5 +1,5 @@
 # ggFeedbackMessages
-jQuery plugin ggFeedbackMessages v1.0
+jQuery plugin ggFeedbackMessages
 -developed by GGaritaJ: Gerardo Garita-
 
 Plugin based on jquery to sends different types of feedback messages to the user (ex: warning, information, danger, success).
